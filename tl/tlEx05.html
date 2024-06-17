@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- th:href 예제
+		타임리프에서는 링크를 처리하는 문법으로 th:href가 있다.
+		링크의 종류
+		외부 링크 : Absolute URL
+		내부 링크 : Context-relative URL
+	 -->
+	 <h1>Thymeleaf 링크 처리 예제 페이지</h1>
+	 <div>
+	 	<!-- root 주소를 시작으로 컨트롤러에 명시한 요청 주소를 상대 주소로 입력 -->
+	 	<a th:href="@{/thymeleaf/ex01}" target="_blank">예제1 페이지 이동</a>
+	 </div>
+	 <div>
+	 	<a th:href="@{https://www.thymeleaf.org/}">thymeleaf 공식 페이지 이동</a>
+	 </div>
+	 <form method="get" action="/thymeleaf/putdata">
+	 	<input type="text" name="data">
+	 	<input type="submit">
+	 </form>
+	 <div>
+	 	당신이 입력한 값은 <span th:text="${data}"></span> 입니다.
+	 </div>
+	 <!-- 해당 링크로 이동 시 파라미터 값을 전달해야 하는 경우도 처리할 수 있다. -->
+	 <div>
+	 	<a th:href="@{/thymeleaf/ex06(param1='파라미터 데이터1', param2='파라미터 데이터2')}">thymeleaf 파라미터 전달</a>
+	 </div>
+</body>
+</html>
